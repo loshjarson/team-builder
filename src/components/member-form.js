@@ -3,14 +3,14 @@ import MemberCard from './member-card';
 import styled from 'styled-components'; 
 
 const MFormConatiner = styled.div`
-        display: flex;
-        justify-content: space-between;
-        margin: auto;
-        border: 2px dashed blue;
-        border-radius: 10px;
-        padding: 10px;
-        width: 40%;
-    `
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    border: 2px dashed blue;
+    border-radius: 10px;
+    padding: 10px;
+    width: 40%;
+`
 
 const MForm = styled.form`
     display: flex;
@@ -19,6 +19,14 @@ const MForm = styled.form`
     margin: auto 5px;
 `
 
+const Sbutton = styled.button`
+    margin: 1rem 2rem 0rem;
+    height: 25px;
+    background-color: green;
+    border-radius: 5px;
+    border-color: lightgrey;
+    font-weight: 800;
+`
 
 const MemberForm = props => {
     const {newTeamMember, setNewTeamMember, teamMembers, setTeamMembers} = props;
@@ -97,7 +105,7 @@ const MemberForm = props => {
                     Email:&nbsp;&nbsp;&nbsp;
                     <input type="text" onChange={event => EmailHandler(event)} value={newEmail} name="email" required/>
                 </label>
-                <button type="submit">Add</button>
+                <Sbutton type="submit">ADD MEMBER</Sbutton>
             </MForm>
         </MFormConatiner>
     )
