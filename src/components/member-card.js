@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Card = styled.div`
         display: flex;
         flex-direction: column;
-        width: 30rem;
+        width: 23rem;
         height: 8rem;
         border: 2px solid grey;
         border-radius: 15px;
@@ -25,10 +25,10 @@ const Name = styled.h2`
     `
 
 const MemberCard = props => {
-    const {member, newTeamMember, setNewTeamMember} = props;
+    const {member} = props;
     
     return(
-        <Card>
+        <Card key={member.name}>
             <Name>{member.name}</Name>
             <Info><p>Role: {member.role}</p><p>Email: {member.email}</p></Info>
         </Card>

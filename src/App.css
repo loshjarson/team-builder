@@ -18,13 +18,7 @@
 
 .App-header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  height: 10%;
-  transition: 2s;
+  height: 15%;
 }
 
 .App-link {
@@ -38,4 +32,33 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.fade-enter {
+  opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.fade-leave {
+  opacity: 1;
+}
+
+.fade-leave.fade-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+.Member-list {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    color: black;
+    margin: auto;
+    width: 55rem;
+    overflow-y: auto;
+    height: 80vh;
 }

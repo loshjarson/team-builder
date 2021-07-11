@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components'
 import TeamList from './components/team-list'
 import MemberForm from './components/member-form'
+import { CSSTransitionGroup } from 'react-transition-group'
 
 const TeamNameInput = styled.input`
     border: none;
@@ -11,25 +12,18 @@ const TeamNameInput = styled.input`
     outline: none;
     font-size: 30px;
     text-align: center;
-    margin: 2rem 0;
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
   `
 
 const Content = styled.div`
   height: 90%;
   display: flex;
-  flex-direction: column;
 `
 
 function App() {
-  const [teamMembers, setTeamMembers] = useState([{
-    name: "Susan",
-    email: "meme",
-    role: "pres"
-  },{
-    name: "Mary",
-    role: "ass",
-    email: "hi"  
-  }])
+  const [teamMembers, setTeamMembers] = useState([])
   const [newTeamMember, setNewTeamMember] = useState({
     name:"NAME",
     role:"ROLE",
@@ -41,12 +35,14 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <TeamNameInput type="text" placeholder="Team Name"/>
+        <TeamNameInput type="text" placeholder="Team Name" maxLength={61}/>
       </header>
+      
       <Content>
-      <TeamList teamMembers={teamMembers}/>
+        <TeamList teamMembers={teamMembers}/>
       <MemberForm newTeamMember={newTeamMember} setNewTeamMember={setNewTeamMember} teamMembers={teamMembers} setTeamMembers={setTeamMembers}/>
       </Content>
+      
     </div>
   );
 }

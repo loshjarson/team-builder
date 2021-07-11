@@ -1,13 +1,15 @@
 import React from "react";
 import styled from 'styled-components'; 
 import MemberCard from "./member-card";
+import { CSSTransitionGroup } from 'react-transition-group'
 
 const MemberList = styled.div`
     display: flex;
-    flex-direction: column;
     color: black;
     margin: auto;
-    width: max-content;
+    width: 55rem;
+    overflow-y: auto;
+    height: 80vh;
     `
 
 
@@ -17,9 +19,13 @@ const TeamList = props => {
 
     return(
         <MemberList>
+            <CSSTransitionGroup transitionName="fade"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300} className="Member-list">
             {teamMembers.map(member => (
                 <MemberCard member={member} newTeamMember={newTeamMember} setNewTeamMember={setNewTeamMember}/>
             ))}
+            </CSSTransitionGroup>
         </MemberList>
     )
 }
